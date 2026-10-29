@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kosh · Family finance, understood</title>
+<meta name="description" content="Kosh is an AI-powered family finance app: budgets a whole family can plan together, a saving wallet, and an adviser that warns while there is still time to act. CBSE Skill Expo 2026–27.">
+<meta name="theme-color" content="#e4e3e0">
+<link rel="icon" href="favicon.png">
+<link rel="stylesheet" href="site.css">
+<script type="importmap">{ "imports": { "three": "./vendor/three/three.module.min.js", "three/addons/": "./vendor/three/addons/" } }</script>
+</head>
+<body>
+<div class="ground" aria-hidden="true"></div>
+
+<nav class="top" aria-label="Main">
+  <a class="mark" href="#top">KOSH</a>
+  <div class="links">
+    <a href="#features">Features</a>
+    <a href="#adviser">Adviser</a>
+    <a href="#security">Security</a>
+    <a href="admin" id="adminLink" class="keep">Admin</a>
+  </div>
+  <a class="btn sm dark" href="#install">Install</a>
+</nav>
+
+<header class="hero" id="top">
+  <canvas id="stage" aria-hidden="true"></canvas>
+  <div class="hero-fallback" aria-hidden="true">
+    <div class="pair"><div class="phone"><img src="img/home.jpg" alt=""></div><div class="phone"><img src="img/adviser.jpg" alt=""></div></div>
+  </div>
+  <div class="hero-copy">
+    <h1>Money, understood.<br>Together.</h1>
+    <p class="lead">Kosh is a family finance app that tells you on the 18th that you will overspend by the 22nd, while there is still time to change it.</p>
+    <div class="row">
+      <a class="btn dark" href="#install">Install for Android</a>
+      <a class="btn" href="#adviser">Try the adviser</a>
+    </div>
+  </div>
+  <a class="hero-qr glass" href="#install" aria-label="Scan to open Kosh on your phone"><img src="qr-site.svg" alt="" width="92" height="92"><span>Scan to get<br>Kosh on<br>your phone</span></a>
+  <div class="hero-tag">CBSE Skill Expo &amp; Guidance Festival 2026–27<br>Category II · DAV Public School, Defence Colony</div>
+  <div class="scrollcue" aria-hidden="true"></div>
+</header>
+
+<main>
+<section aria-labelledby="reg-h">
+  <div class="wrap">
+    <h2 id="reg-h" class="rise">The project, as registered</h2>
+    <dl class="reg" style="margin-top:44px">
+      <div class="glass rise"><dt>Theme Name</dt><dd>Entrepreneurship &amp; Financial Literacy</dd></div>
+      <div class="glass rise"><dt>Sub Theme</dt><dd>Financial Literacy &amp; AI-Assisted Money Management</dd></div>
+      <div class="glass rise"><dt>Project Name</dt><dd>AI-Powered Family Fin-Tech &amp; Financial Management Application</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section aria-labelledby="gaps-h">
+  <div class="wrap split">
+    <h2 id="gaps-h" class="rise">What payment apps leave out</h2>
+    <div>
+      <ul class="gaps">
+        <li class="rise"><b>No budget to measure against</b><span>A list of payments is only history until there is a plan to compare it with.</span></li>
+        <li class="rise"><b>No family view</b><span>Households share money but are tracked as separate people. Nobody sees the total until it is too late.</span></li>
+        <li class="rise"><b>No saving wallet</b><span>Money set aside for a goal sits in the spending balance and is quietly spent.</span></li>
+        <li class="rise"><b>No trustworthy place to learn</b><span>Little reliable news, and nowhere to ask an ordinary question.</span></li>
+        <li class="rise"><b>No separate token identity</b><span>Rewards are tied to the very account that holds the money.</span></li>
+        <li class="rise"><b>No adviser</b><span>The data needed for useful advice is already in the app. Nothing is done with it.</span></li>
+      </ul>
+      <p class="glass verdict rise">Apps are very good at recording money and very poor at helping people understand it, and the gap is widest for a family, where money is shared but visibility is not.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="life-h">
+  <div class="wrap">
+    <h2 id="life-h" class="rise">A payment that keeps working</h2>
+    <p class="lead rise" style="margin-top:20px">In a payment app, a transaction stops once it is recorded. In Kosh it goes through four more stages, and each one gives the family something the stage before could not.</p>
+    <div class="life">
+      <div class="pulse" aria-hidden="true"></div>
+      <div class="glass rise"><div class="stage">Spend</div><div class="what">Aarav pays at PVR</div><div class="data num">−₹142</div></div>
+      <div class="glass rise"><div class="stage">Record</div><div class="what">Saved with time and merchant</div><div class="data">16 Oct, 20:00</div></div>
+      <div class="glass rise added"><div class="stage">Categorise</div><div class="what">Merchant, note, time, history</div><div class="data">Entertainment, 83% sure</div></div>
+      <div class="glass rise added"><div class="stage">Analyse</div><div class="what">Against the whole month</div><div class="data num">₹590 of ₹700 · day 18</div></div>
+      <div class="glass rise added"><div class="stage">Compare</div><div class="what">Ahead of plan, on it, or behind</div><div class="data num">84% used, 58% of month</div></div>
+      <div class="glass rise added"><div class="stage">Insight</div><div class="what">Said plainly, early</div><div class="data">Crosses around the 22nd</div></div>
+    </div>
+    <div class="life-key rise"><span><i></i>What payment apps do</span><span><i class="on"></i>What Kosh adds</span></div>
+  </div>
+</section>
+
+<section id="features" aria-labelledby="feat-h">
+  <div class="wrap">
+    <h2 id="feat-h" class="rise">Seven things, one family</h2>
+
+    <article class="feature">
+      <div class="phone-wrap rise"><div class="phone tilt"><img src="img/home.jpg" alt="Kosh home screen: balance, spending, the family and today's payments" loading="lazy"></div></div>
+      <div class="rise">
+        <h3>Smart budget tracking</h3>
+        <p>Every payment is sorted into food, transport, education, entertainment and the rest, using four kinds of evidence, so a budget can be measured without anyone labelling purchases by hand.</p>
+        <p>Correct a category once and every payment to that shop follows it.</p>
+        <div class="glass inapp"><b>In the app</b>Press and hold any payment to see why it got its category, and change it.</div>
+      </div>
+    </article>
+
+    <article class="feature flip">
+      <div class="phone-wrap rise"><div class="phone tilt"><img src="img/family.jpg" alt="Kosh Family Space: four members, their roles and what each shares" loading="lazy"></div></div>
+      <div class="rise">
+        <h3>Family tracking and planning</h3>
+        <p>Members join a family space and each decides what the others may see: transactions, budgets, saving goals. Nothing is shared automatically, and any of it can be withdrawn at any time.</p>
+        <p>Together the family agrees a monthly budget, watches it as the month runs, and talks about it in the same place.</p>
+        <div class="glass inapp"><b>Four roles</b>Account owner, family administrator, family member, and a restricted role for younger children.</div>
+      </div>
+    </article>
+
+    <article class="feature">
+      <div class="phone-wrap rise"><div class="phone tilt"><img src="img/wallet.jpg" alt="Kosh Saving Wallet with goal cards" loading="lazy"></div></div>
+      <div class="rise">
+        <h3>A saving wallet</h3>
+        <p>Money for a goal is kept apart from spending money, so it is not used for something else on the way. A ₹6,000 goal saved at ₹500 a week is reached in week twelve, and Kosh keeps that date honest as the pace changes.</p>
+        <div class="glass inapp"><b>In the app</b>Slide to save, plan a weekly amount, or freeze a goal.</div>
+      </div>
+    </article>
+
+    <article class="feature flip">
+      <div class="phone-wrap rise"><div class="phone tilt"><img src="img/news.jpg" alt="Kosh Learn and Ask with live financial news" loading="lazy"></div></div>
+      <div class="rise">
+        <h3>Awareness and community</h3>
+        <p>Short lessons, a glossary, live headlines from a real financial newspaper, and a moderated place to ask an ordinary question about money.</p>
+        <div class="glass inapp"><b>Nothing invented</b>News is read live from the publisher's own feed. Offline, the app says so.</div>
+      </div>
+    </article>
+
+    <article class="feature">
+      <div class="phone-wrap rise"><div class="token tilt"><div>Token identity</div><div class="n num">1,240</div><div class="id">KSH-AARAV-7Q2X</div></div></div>
+      <div class="rise">
+        <h3>A separate token identity</h3>
+        <p>Rewards for keeping a budget, saving every week or finishing a lesson are held in a token identity of their own, apart from the account that holds money. Tokens can be redeemed, never spent or sent.</p>
+      </div>
+    </article>
+
+    <article class="feature flip" id="adviser-feature">
+      <div class="phone-wrap rise"><div class="phone tilt"><img src="img/adviser.jpg" alt="Kosh adviser: entertainment is running ahead, with a pace chart" loading="lazy"></div></div>
+      <div class="rise">
+        <h3>A personal adviser</h3>
+        <p>It reads what the other parts have collected and says, in plain words and with the figures beside it, what is happening and what will happen if nothing changes. It never moves money and never decides for you.</p>
+        <div class="glass inapp"><b>Minimum necessary data</b>Each answer says exactly what it was allowed to read, such as "Entertainment total and budget, this month only".</div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="adviser" aria-labelledby="adv-h">
+  <div class="wrap">
+    <h2 id="adv-h" class="rise">Try the adviser</h2>
+    <p class="lead rise" style="margin-top:20px">The same rules the app uses. Move the sliders and read what it would say.</p>
+    <div class="live">
+      <div class="glass rise">
+        <div class="slider"><label for="sB">Entertainment budget <b class="num" id="vB"></b></label><input id="sB" type="range" min="200" max="3000" step="50" value="700"></div>
+        <div class="slider"><label for="sS">Spent so far <b class="num" id="vS"></b></label><input id="sS" type="range" min="0" max="3000" step="10" value="590"></div>
+        <div class="slider"><label for="sD">Day of the month <b class="num" id="vD"></b></label><input id="sD" type="range" min="1" max="30" step="1" value="18"></div>
+        <p class="small" style="margin:0">A 31-day month. The figures start as the report's own example.</p>
+      </div>
+      <div class="glass rise" aria-live="polite">
+        <div class="advice" id="advice"></div>
+        <div class="chips" id="chips"></div>
+        <svg id="pace" viewBox="0 0 620 150" preserveAspectRatio="none" role="img" aria-label="Spending through the month against the budget"></svg>
+        <div class="used"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M6 1 2 3v3c0 2.5 1.7 4.4 4 5 2.3-.6 4-2.5 4-5V3z" fill="none" stroke="currentColor"/></svg>Used only: the entertainment total and budget, this month only</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="plan-h">
+  <div class="wrap">
+    <h2 id="plan-h" class="rise">A family's month, on day 18</h2>
+    <p class="lead rise" style="margin-top:20px">The Mehra family agreed ₹60,000 together. This is the plan as Kosh shows it, with 18 of 31 days gone.</p>
+    <div class="glass rise" style="padding:10px 20px 18px;margin-top:40px;overflow-x:auto">
+      <table class="plan">
+        <thead><tr><th>Category</th><th class="r">Agreed</th><th class="r">Spent</th><th class="bar">Used</th><th>Status</th></tr></thead>
+        <tbody id="planRows"></tbody>
+        <tfoot><tr><td>Total</td><td class="r">₹60,000</td><td class="r">₹48,950</td><td class="bar"></td><td>18 days elapsed</td></tr></tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="security" aria-labelledby="sec-h">
+  <div class="wrap">
+    <h2 id="sec-h" class="rise">Private by design</h2>
+    <p class="lead rise" style="margin-top:20px">Financial data says more about a person than almost anything else, so security is the condition Kosh exists under, not a feature added at the end.</p>
+    <div class="sec">
+      <div class="glass rise"><h4>Permission, never assumed</h4><p>A family member sees exactly what the owner has allowed, no more, and the owner can withdraw it at any time.</p></div>
+      <div class="glass rise"><h4>An access log</h4><p>Every view of shared data and every change is written down: who, what and when.</p></div>
+      <div class="glass rise"><h4>App lock</h4><p>A four-digit PIN, typed twice to set, asked for every time Kosh opens.</p></div>
+      <div class="glass rise"><h4>Roles</h4><p>A restricted member sees their own budget and the family totals, never another person's payments.</p></div>
+      <div class="glass rise"><h4>The adviser's limits</h4><p>It reads only the figures a question needs, and shows which ones.</p></div>
+      <div class="glass rise"><h4>Verified copies only</h4><p>Every copy of the app must be verified at the Kosh stall before it opens, so a copied APK is useless.</p></div>
+    </div>
+    <div class="verify-steps">
+      <figure class="rise"><div class="phone"><img src="img/verify.jpg" alt="Kosh waiting for approval with a match code" loading="lazy"></div><figcaption><b>Scan at the stall</b>A single-use code, valid for minutes</figcaption></figure>
+      <figure class="rise"><div class="phone"><img src="img/verified.jpg" alt="Kosh verified" loading="lazy"></div><figcaption><b>Approved by the owners</b>Both screens show the same number</figcaption></figure>
+      <figure class="rise"><div class="phone"><img src="img/onboarding.jpg" alt="Kosh welcome screen" loading="lazy"></div><figcaption><b>Bound to that phone</b>A signed licence that no copy can carry</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="install" aria-labelledby="inst-h">
+  <div class="wrap">
+    <h2 id="inst-h" class="rise">Get Kosh</h2>
+    <div class="install">
+      <div class="cardzone rise">
+        <div class="metal" id="metal" role="button" tabindex="0" aria-label="Press and hold to install Kosh">
+          <div class="face">
+            <div class="wm">KOSH</div>
+            <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
+            <div class="label"><b>kosh family</b><span id="cardMeta">Android · version …</span></div>
+            <svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle class="track" cx="32" cy="32" r="28"/><circle class="prog" id="prog" cx="32" cy="32" r="28"/><text x="32" y="36">HOLD</text></svg>
+          </div>
+          <div class="back">
+            <img id="qr" src="qr-site.svg" alt="QR code to open this page on a phone and download Kosh">
+            <div><h4 id="backTitle">Scan with your phone</h4><p id="backText">It opens this page on the phone, where the same card downloads the app.</p><button class="btn sm" id="flipBack" type="button">Back</button></div>
+          </div>
+        </div>
+        <p class="hint" id="hint">Press and hold the card</p>
+      </div>
+      <div class="rise">
+        <ol class="steps">
+          <li><div><b>Download</b><span>Hold the card on your phone, or scan its QR from a computer. Your phone may ask to allow installs from this browser.</span></div></li>
+          <li><div><b>Install</b><span>Open the downloaded file. Android shows the app's name and asks once.</span></div></li>
+          <li><div><b>Verify at the stall</b><span>Kosh opens on a verification screen. Scan the code on the stall's screen and wait for the owners to approve your phone.</span></div></li>
+        </ol>
+        <div class="glass scanbox">
+          <img src="qr-site.svg" alt="QR code: open the Kosh website on your phone" width="150" height="150">
+          <div><b>Scan to get Kosh on your phone</b><span>Point your phone's camera here. It opens this website, where the card downloads the app.</span><span class="num" id="siteAddr"></span></div>
+        </div>
+        <p class="apkmeta" id="apkMeta"></p>
+        <p style="margin-top:18px"><a class="btn sm" href="download/Kosh.apk" id="direct">Download the APK directly</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="big" aria-hidden="true">KOSH</p>
+    <div class="cols">
+      <div><b>AI-Powered Family Fin-Tech &amp; Financial Management Application</b>Presented by Kartikey Purohit and Shaurya Kothari, DAV Public School, Defence Colony, Dehradun, Uttarakhand. CBSE Skill Expo &amp; Guidance Festival 2026–27, Category II.</div>
+      <div><b>The demo family</b>The Mehra family is fictional. Their portraits were generated and show people who do not exist.</div>
+      <div><b>Credits</b>Merchant logos belong to their owners. Card surfaces from Wikimedia Commons photographs (CC BY-SA 4.0). Typefaces under the SIL Open Font License.</div>
+    </div>
+  </div>
+</footer>
+
+<script src="config.js"></script>
+<script src="heartbeat.js"></script>
+<script src="site.js"></script>
+<script type="module" src="hero.js"></script>
+</body>
+</html>

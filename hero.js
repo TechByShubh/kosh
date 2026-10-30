@@ -130,7 +130,10 @@ const slabs = [
 // ── layout and motion
 let mx = 0, my = 0, tmx = 0, tmy = 0;
 addEventListener('pointermove', (e) => { tmx = e.clientX / innerWidth - .5; tmy = e.clientY / innerHeight - .5; }, { passive: true });
-let wide = true;
+let wide = true, lay = { x: 1.9, y: 0, s: 1 };
+const copyEl = document.querySelector('.hero-copy'), qrEl = document.querySelector('.hero-qr');
+// the phone and its glass are fitted into the space the copy leaves free:
+// beside it on wide screens, above it on portrait phones and tablets
 function resize() {
   const w = canvas.clientWidth, h = canvas.clientHeight;
   renderer.setSize(w, h, false);
@@ -141,9 +144,20 @@ function resize() {
   const vw = vh * camera.aspect;
   const s = Math.max(vw, vh * bd.width / bd.height);
   backdrop.scale.set(s, s * bd.height / bd.width, 1);
+  // pixels per world unit on the phone's own plane (z = 0)
+  const ppw = h / (2 * camera.position.z * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)));
+  const hr = canvas.getBoundingClientRect(), cr = copyEl.getBoundingClientRect(), qr = qrEl.getBoundingClientRect();
+  let L, R, T = 84, B;
+  if (wide) { L = cr.right - hr.left + 24; R = w - 24; B = qr.height ? qr.top - hr.top - 14 : h - 30; }
+  else { L = 12; R = w - 12; B = cr.top - hr.top - 18; }
+  const k = Math.max(.32, Math.min(1, (B - T) / (4.0 * ppw), (R - L) / (3.4 * ppw)));
+  lay = { x: ((L + R) / 2 - w / 2) / ppw, y: (h / 2 - (T + B) / 2) / ppw, s: k };
+  if (wide && w >= 1300) lay = { x: 1.9, y: 0, s: 1 };   // desktop: the original composition
 }
 addEventListener('resize', resize);
 resize();
+document.fonts.ready.then(resize);
+new ResizeObserver(resize).observe(copyEl);
 
 let cur = 0, fade = 0, lastSwap = performance.now();
 const clock = new THREE.Clock();
@@ -156,16 +170,17 @@ function frame() {
   const t = clock.getElapsedTime();
   mx += (tmx - mx) * .06; my += (tmy - my) * .06;
   const scroll = Math.min(1, scrollY / innerHeight);
-  const baseX = wide ? 1.9 : 0, baseY = wide ? 0 : 1.32, s = wide ? 1 : .6;
+  const baseX = lay.x, baseY = lay.y, s = lay.s;
   phone.scale.setScalar(s);
   phone.position.set(baseX + mx * .25, baseY + (still ? 0 : Math.sin(t * .8) * .06) + scroll * 1.2, 0);
   phone.rotation.set(.06 - my * .14 + scroll * .25, -.42 + mx * .45 + (still ? 0 : Math.sin(t * .35) * .05) - scroll * .5, .04);
-  shadow.position.set(baseX + .45 + mx * .1, baseY - .55 + scroll * 1.2, -1.2);
+  shadow.position.set(baseX + (.45 + mx * .1) * s, baseY - .55 * s + scroll * 1.2, -1.2);
+  shadow.scale.setScalar(s);
   slabs.forEach((m, i) => {
     const u = m.userData;
-    m.position.x = (wide ? baseX : 0) + u.x * (wide ? 1 : .55) - mx * (.3 + i * .15);
-    m.scale.setScalar(wide ? 1 : .6);
-    m.position.y = u.y * (wide ? 1 : .55) + baseY + (still ? 0 : Math.sin(t * .6 + i * 2) * .08) + scroll * (1.6 + i * .3);
+    m.position.x = baseX + u.x * s - mx * (.3 + i * .15);
+    m.scale.setScalar(s);
+    m.position.y = u.y * s + baseY + (still ? 0 : Math.sin(t * .6 + i * 2) * .08) + scroll * (1.6 + i * .3);
     m.rotation.set(-my * .2 + (still ? 0 : Math.sin(t * .5 + i) * .04), mx * .3 + (still ? 0 : Math.cos(t * .4 + i) * .06), u.r);
   });
   key.position.set(-4 + mx * 6, 6 - my * 4, 7);

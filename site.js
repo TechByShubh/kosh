@@ -27,11 +27,14 @@
     $('#apkMeta').textContent = `Kosh ${a.version}, built ${a.built}. SHA-256 ${a.sha256}`;
   };
   $('#direct').href = apkUrl;
+  // The main download is the arm64 build from a fast CDN; very old 32-bit
+  // phones need the full build, which only GitHub carries.
+  if (CFG.apkAll) { $('#allAbi').href = CFG.apkAll; $('#allAbi').hidden = false; }
   showApk(CFG.version ? { version: CFG.version, size: CFG.size, built: CFG.built, sha256: CFG.sha256 } : null);
   if (CFG.site) $('#siteAddr').textContent = CFG.site.replace(/^https?:\/\//, '').replace(/\/$/, '');
   fetch('api/info').then((r) => (r.ok ? r.json() : Promise.reject())).then((i) => {
     if (!i || !i.version && !i.apk && !i.urls) return;
-    onServer = true; apkUrl = 'download/Kosh.apk'; $('#direct').href = apkUrl;
+    onServer = true; apkUrl = 'download/Kosh.apk'; $('#direct').href = apkUrl; $('#allAbi').hidden = true;
     if (i.admin) $('#adminLink').style.display = 'inline';
     if (i.apk) showApk(i.apk);
   }).catch(() => {});
